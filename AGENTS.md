@@ -58,7 +58,11 @@ review the students' code, and write tests from the spec, but do not silently
 rewrite their logic. Everything else you may draft, and the students review it.
 
 ## Working agreements
-- Work in small steps on a feature branch, never directly on main.
+- Commit directly to main. There are no branches or pull requests.
+- After finishing each task, run ./sync.sh "short description of the change". Only do this after you have added a row for the task to docs/AI_LOG.md.
+- If sync.sh fails (lint, type check, build, or push), stop and tell me the exact error. Never use --force, never skip checks, and never edit git settings.
+- Never commit .env.local or any file containing a key, token or password.
+- If sync.sh says a merge conflict happened, stop and tell me. Do not resolve it yourself.
 - After each step run npm test and npm run lint, then summarize what changed in
   plain language so both students can explain it.
 - Ask before adding any new dependency.

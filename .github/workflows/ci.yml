@@ -1,0 +1,33 @@
+# On pushes and pull requests to main, check out the project on Ubuntu.
+# Set up Node 22 and cache npm downloads, then install the locked dependencies.
+# Check code style and TypeScript types, then run tests (allowing no tests yet).
+# Finally, build the app. Each step must pass before the next step runs.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the project
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check code style
+        run: npm run lint
+      - name: Check TypeScript types
+        run: npx tsc --noEmit
+      - name: Run tests
+        run: npm test -- --passWithNoTests
+      - name: Build the app
+        run: npm run build

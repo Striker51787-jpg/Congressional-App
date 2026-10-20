@@ -7,3 +7,4 @@ Each partner must be able to explain every file in this repo without help.
 |------|-----|------|------------------|--------------------------|------------|
 |      |     |      |                  |                          |            |
 | 2026-10-18 | Sriram Y | Codex | scaffolded the Next.js app at the repo root and installed the dependencies from docs/SPEC.md section 11. | added the npm scripts for test and find-gauges. | Ahan M reviews the pull request. |
+| 2026-10-18 | Sriram Y | Codex | created sync.sh, CI workflow and updated AGENTS.md workflow rules | | |
